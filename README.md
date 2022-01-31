@@ -3,9 +3,20 @@
 
 [![Travis build
 status](https://travis-ci.org/ValeriVoev/danstat.svg?branch=master)](https://travis-ci.org/ValeriVoev/danstat)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/danstat)](https://CRAN.R-project.org/package=danstat)
+![Since when](https://www.r-pkg.org/badges/ago/danstat)
+<!-- ![Downloads](https://cranlogs.r-pkg.org/badges/danstat) -->
+<!-- ![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/danstat) -->
 <!-- badges: end -->
 
 ## Installation
+
+From CRAN:
+
+``` r
+install.packages("danstat")
+```
 
 From Github:
 
@@ -19,8 +30,8 @@ devtools::install_github("ValeriVoev/danstat")
 The `danstat` package provides an R interface to Danmarks Statistik
 Statistikbank API to enable an easier access to the wealth of data in
 the data bank for research and the general community. The documentation
-of the API can be found here: [Statistikbank
-API](https://www.dst.dk/en/Statistik/statistikbanken/api).
+of the API can be found here: [Databank
+API](https://www.dst.dk/en/Statistik/brug-statistikken/muligheder-i-statistikbanken/api).
 
 ## Usage
 
@@ -30,13 +41,13 @@ package:
 1.  `get_subjects()` (SUBJECTS endpoint) retrieves information about
     subjects around which the data tables in the data bank are
     organized. The subjects are arranged hierarchically highest level
-    like “Population and elections”, “Living conditions”, etc.
+    like “Labour and income”, “Transport”, etc.
     `get_subjects()` retrieves the highest level of the hierarchy. See
     the function documentation for more details.
 2.  `get_tables()` (TABLES endpoint) retrieves a list of tables
     associated with a given subject code. For example
-    `get_tables(subjects = "02")` retrieves all tables related to the
-    subject “Population and elections” with table id, description,
+    `get_tables(subjects = "2")` retrieves all tables related to the
+    subject “Labour and income” with table id, description,
     variables in the table, etc.
 3.  `get_table_metadata()` (TABLEINFO endpoint) returns information
     about a particular table - description, time of last update, whether
@@ -72,7 +83,7 @@ get_data(table_id = "folk1c", variables = user_input)
 ```
 
 Note that while default language is set to English and variable values
-are indeed returned in english, e.g. “Men”, column names are returned in
+are indeed returned in English, e.g. “Men”, column names are returned in
 Danish, e.g. “KØN”, “INDHOLD”, etc. Unfortunately, the API doesn’t
 currently provide an option to return column names (variable names) in
 English. However, you can get the English translation using

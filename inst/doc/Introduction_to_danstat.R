@@ -17,12 +17,12 @@ library(kableExtra)
 get_subjects()
 
 ## -----------------------------------------------------------------------------
-subj <- get_subjects(subjects = c("05","06"))
+subj <- get_subjects(subjects = c("6","7"))
 subsubjects <- subj$subjects %>% bind_rows()
 subsubjects
 
 ## -----------------------------------------------------------------------------
-tables <- get_tables(subjects = c("2413", "2438")) 
+tables <- get_tables(subjects = c("3465", "3413")) 
 tables %>% 
   select(id, text, variables) %>% 
   kable()
@@ -104,7 +104,7 @@ alcohol_by_year %>%
 ## ----out.width = '100%'-------------------------------------------------------
 
 alcohol_data <- alcohol_by_year %>% 
-  filter(between(TID, 1997, 2018),
+  filter(between(TID, 1997, 2021),
          grepl("sales", TYPE, ignore.case = TRUE)) %>% 
   select(year = TID,
          alcohol_sales = INDHOLD)
